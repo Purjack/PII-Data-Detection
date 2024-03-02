@@ -1,11 +1,19 @@
 import utils
 import preprocessing
 import train
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--kaggle", action="store_true")
+args = parser.parse_args()
 
 if __name__ == "__main__":
 
     # 1. Load the data as dataframes
-    train_df, test_df = utils.load_data(root="data", extension="json")
+    if args.kaggle:
+        train_df, test_df = utils.load_data(root="/kaggle/input/pii-detection-removal-from-educational-data", extension="json")
+    else:
+        train_df, test_df = utils.load_data(root="data", extension="json")
 
     # 2. Preprocess the data
     # 2.1. Tokenize in BERT acceptable format
