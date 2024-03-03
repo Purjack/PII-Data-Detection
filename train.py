@@ -64,7 +64,7 @@ def pipeline(train_dataloader, test_dataloader, num_epochs):
         model.eval()
         test_loss = 0
         with torch.inference_mode():
-            for batch in tqdm(enumerate(test_dataloader)):
+            for batch in tqdm(test_dataloader):
 
                 # Send data to target device
                 batch = {k: v.to(device) for k, v in batch.items()}
