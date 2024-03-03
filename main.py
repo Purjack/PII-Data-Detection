@@ -21,14 +21,14 @@ if __name__ == "__main__":
     # 2.3. Wrap the data into a DataLoader
     train_dataloader = preprocessing.pipeline(dataframe=train_df,
                                               label_map=utils.get_label_2_id(),
-                                              max_token_len=512,
-                                              batch_size=64,
+                                              max_token_len=256,
+                                              batch_size=32,
                                               isTrain=True,
                                               shuffle=True)
     test_dataloader = preprocessing.pipeline(dataframe=test_df,
                                              label_map=utils.get_label_2_id(),
-                                             max_token_len=512,
-                                             batch_size=64,
+                                             max_token_len=256,
+                                             batch_size=32,
                                              isTrain=False,
                                              shuffle=False)
 
